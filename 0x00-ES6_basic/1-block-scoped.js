@@ -1,6 +1,6 @@
 export default function taskBlock(trueOrFalse) {
-  var task = false;   // Use let to create a block-scoped variable
-  var task2 = true;   // Use let for task2 as well
+  const task = false;   // Use let to create a block-scoped variable
+  const task2 = true;   // Use let for task2 as well
 
   if (trueOrFalse) {
     task = true;      // Update the existing variable
