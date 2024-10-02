@@ -1,19 +1,19 @@
-import uploadPhoto from './utils.js'; // Adjust the import path as needed
-import createUser from './utils.js';   // Adjust the import path as needed
+import uploadPhoto from './utils.js'; // Adjust the path to your utils.js
+import createUser from './utils.js';   // Adjust the path to your utils.js
 
-export default async function asyncUploadUser(firstName, lastName, fileName) {
+export default async function asyncUploadUser(fileName, firstName, lastName) {
   try {
-    // Await the responses from uploadPhoto and createUser functions
-    const photoResponse = await uploadPhoto(status: 200, body: 'photo-profile-1');
-    const userResponse = await createUser(firstName: 'Guillaume', lastName: 'Salva');
+    // Call the functions and await their results
+    const photoResponse = await uploadPhoto(fileName);
+    const userResponse = await createUser(firstName, lastName);
 
-    // Return the object with the responses
+    // Return an object containing both responses
     return {
       photo: photoResponse,
       user: userResponse,
     };
   } catch (error) {
-    // If any function fails, return an empty object
+    // If any of the calls fail, return an empty object
     return {
       photo: null,
       user: null,
