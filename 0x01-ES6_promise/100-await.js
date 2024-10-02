@@ -20,3 +20,4 @@ export default async function asyncUploadUser(firstName, lastName, fileName) {
     };
   }
 }
+
