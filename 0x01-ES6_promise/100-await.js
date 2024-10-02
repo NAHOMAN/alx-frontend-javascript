@@ -5,7 +5,7 @@ export default async function asyncUploadUser() {
   try {
     // Call uploadPhoto and createUser, awaiting their responses
     const photo = await uploadPhoto('file.jpg'); // Replace with the actual filename
-    const user = await createUser(first name, last name); // Replace with actual user details
+    const user = await createUser('first name', 'last name'); // Replace with actual user details
 
     // Return the object with both responses
     return {
