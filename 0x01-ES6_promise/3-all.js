@@ -1,12 +1,12 @@
-import uploadPhoto from '.utils.js'; // Adjust the import path if necessary
-import createUser from '.utils.js';   // Adjust the import path if necessary
+import uploadPhoto from './utils.js'; // Adjust the import path if necessary
+import createUser from './utils.js';   // Adjust the import path if necessary
 
-export default async function handleProfileSignup() {
+export default async function handleProfileSignup(fileName, firstName, lastName) {
   try {
     // Wait for both promises to resolve
     const [photoResponse, userResponse] = await Promise.all([
-      uploadPhoto('photo-profile-1.jpg'), // Example filename
-      createUser('Guillaume', 'Salva'),   // Example user details
+      uploadPhoto(fileName),
+      createUser(firstName, lastName),
     ]);
 
     // Log the desired output to the console
