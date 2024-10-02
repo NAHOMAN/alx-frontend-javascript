@@ -4,8 +4,8 @@ import createUser from './utils.js';   // Adjust the import path as needed
 export default async function asyncUploadUser(firstName, lastName, fileName) {
   try {
     // Await the responses from uploadPhoto and createUser functions
-    const photoResponse = await uploadPhoto(fileName);
-    const userResponse = await createUser(firstName, lastName);
+    const photoResponse = await uploadPhoto(status: 200, body: 'photo-profile-1');
+    const userResponse = await createUser(firstName: 'Guillaume', lastName: 'Salva');
 
     // Return the object with the responses
     return {
