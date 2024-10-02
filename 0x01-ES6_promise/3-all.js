@@ -1,16 +1,16 @@
-import uploadPhoto from './utils.js'; // Adjust the import path based on your actual project structure
-import createUser from './utils.js';   // Adjust the import path based on your actual project structure
+import uploadPhoto from './utils.js'; // Import uploadPhoto function
+import createUser from './utils.js';    // Import createUser function
 
 export default async function handleProfileSignup() {
   try {
-    // Upload a photo and create a user
-    const photoResponse = await uploadPhoto('example-photo.jpg'); // Example filename
-    const userResponse = await createUser('First', 'Last'); // Example first and last name
+    // Call the functions and wait for their promises to resolve
+    const photoResponse = await uploadPhoto('profile-pic.jpg'); // Replace with your filename
+    const userResponse = await createUser('John', 'Doe'); // Replace with actual user details
 
-    // Log the required output format
-    console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+    // Log the required information to the console
+    console.log(photoResponse.body, userResponse.firstName, userResponse.lastName);
   } catch (error) {
-    // Log the error message if any promise fails
-    console.error('Signup system offline');
+    // If there's an error, log the error message
+    console.log('Signup system offline');
   }
 }
