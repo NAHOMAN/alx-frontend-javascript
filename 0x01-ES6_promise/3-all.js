@@ -1,16 +1,16 @@
-import uploadPhoto from './5-photo-reject'; // Adjust the import path based on your project structure
-import createUser from './4-user-promise';   // Adjust the import path based on your project structure
+import uploadPhoto from './utils.js'; // Adjust the import path based on your actual project structure
+import createUser from './utils.js';   // Adjust the import path based on your actual project structure
 
 export default async function handleProfileSignup() {
   try {
-    // Call the functions and wait for the promises to resolve
-    const photoResponse = await uploadPhoto('my-photo.jpg'); // Pass a sample filename
-    const userResponse = await createUser('Guillaume', 'Salva'); // Pass user details
+    // Upload a photo and create a user
+    const photoResponse = await uploadPhoto('example-photo.jpg'); // Example filename
+    const userResponse = await createUser('First', 'Last'); // Example first and last name
 
-    // Log the results in the required format
+    // Log the required output format
     console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
   } catch (error) {
-    // Log error message in case of failure
+    // Log the error message if any promise fails
     console.error('Signup system offline');
   }
 }
