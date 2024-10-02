@@ -1,15 +1,15 @@
-import uploadPhoto from './3-all'; // Adjust the import path if necessary
-import createUser from './3-all';   // Adjust the import path if necessary
+import uploadPhoto from './utils.js'; // Adjust the import path as necessary
+import createUser from './utils.js';   // Adjust the import path as necessary
 
 export default async function handleProfileSignup(fileName, firstName, lastName) {
   try {
-    // Wait for both promises to resolve
+    // Collectively resolve the promises
     const [photoResponse, userResponse] = await Promise.all([
       uploadPhoto(fileName),
       createUser(firstName, lastName),
     ]);
 
-    // Log the desired output to the console
+    // Log the body from the uploadPhoto response and firstName, lastName from createUser response
     console.log(photoResponse.body, userResponse.firstName, userResponse.lastName);
   } catch (error) {
     // Log error message if any of the promises are rejected
