@@ -1,5 +1,5 @@
-import uploadPhoto from './utils.js'; // Adjust the import path if necessary
-import createUser from './utils.js';   // Adjust the import path if necessary
+import uploadPhoto from '.utils.js'; // Adjust the import path if necessary
+import createUser from '.utils.js';   // Adjust the import path if necessary
 
 export default async function handleProfileSignup() {
   try {
