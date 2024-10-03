@@ -1,20 +1,25 @@
-import Car from './10-car.js';
-
-const rangeSymbol = Symbol('range');
-
-export default class EVCar extends Car {
-  constructor(brand, motor, color, range) {
-    super(brand, motor, color); // Call the parent class constructor
-    this[rangeSymbol] = range; // Store range in a symbol
+export default class Car {
+  constructor(brand, motor, color) {
+    this._brand = brand; // Store brand in an underscore attribute
+    this._motor = motor; // Store motor in an underscore attribute
+    this._color = color; // Store color in an underscore attribute
   }
 
-  // Getter for range
-  get range() {
-    return this[rangeSymbol];
-  }
-
-  // Override cloneCar method to return an instance of Car
+  // Method to clone the car object
   cloneCar() {
-    return new Car(this.brand, this.motor, this.color);
+    return new Car(this._brand, this._motor, this._color);
+  }
+
+  // Optionally, you can add getters to access the attributes
+  get brand() {
+    return this._brand;
+  }
+
+  get motor() {
+    return this._motor;
+  }
+
+  get color() {
+    return this._color;
   }
 }
