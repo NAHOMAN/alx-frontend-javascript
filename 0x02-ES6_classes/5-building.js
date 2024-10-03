@@ -1,22 +1,26 @@
-import Building from './Building.js';
+export default class Building {
+  constructor(sqft) {
+    // Validate that sqft is a number
+    if (typeof sqft !== 'number') {
+      throw new TypeError('Square footage must be a number');
+    }
 
-class OfficeBuilding extends Building {
-  constructor(sqft, floors) {
-    super(sqft);
-    this._floors = floors; // Additional property for the subclass
+    // Assign to the private _sqft property
+    this._sqft = sqft;
+
+    // Prevent direct instantiation of the abstract class
+    if (new.target === Building) {
+      throw new Error('Building class cannot be instantiated directly');
+    }
   }
 
-  // Implementing the abstract method
+  // Getter for sqft
+  get sqft() {
+    return this._sqft;
+  }
+
+  // Abstract method that must be overridden by subclasses
   evacuationWarningMessage() {
-    return `Evacuate the ${this._floors} floors of the building!`;
+    throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
-
-// Testing the subclass
-const office = new OfficeBuilding(5000, 10);
-console.log(office.sqft); // Output: 5000
-console.log(office.evacuationWarningMessage()); // Output: Evacuate the 10 floors of the building!
-
-// Uncommenting the following line will throw an error
-// const building = new Building(3000); // Error: Building class cannot be instantiated directly
-
