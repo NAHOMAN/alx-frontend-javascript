@@ -8,13 +8,13 @@ export default class Building {
     // Assign to the private _sqft property
     this._sqft = sqft;
 
-    // Prevent direct instantiation of the abstract class
+    // Ensure that the class cannot be instantiated directly
     if (new.target === Building) {
       throw new Error('Building class cannot be instantiated directly');
     }
   }
 
-  // Getter for sqft
+  // Getter for the sqft attribute
   get sqft() {
     return this._sqft;
   }
