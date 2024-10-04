@@ -1,26 +1,21 @@
-export default class Building {
+class Building {
   constructor(sqft) {
-    // Validate that sqft is a number
-    if (typeof sqft !== 'number') {
-      throw new TypeError('Square footage must be a number');
+    // Check if sqft is a number and greater than zero
+    if (typeof sqft !== 'number' || sqft <= 0) {
+      throw new Error('sqft must be a positive number');
     }
-
-    // Assign to the private _sqft property
-    this._sqft = sqft;
-
-    // Ensure that the class cannot be instantiated directly
-    if (new.target === Building) {
-      throw new Error('Building class cannot be instantiated directly');
-    }
+    this._sqft = sqft; // Store sqft as a private attribute
   }
 
-  // Getter for the sqft attribute
+  // Getter for sqft
   get sqft() {
     return this._sqft;
   }
 
-  // Abstract method that must be overridden by subclasses
+  // This method should be implemented by subclasses
   evacuationWarningMessage() {
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
+
+export default Building; // Export the Building class for use in other modules
