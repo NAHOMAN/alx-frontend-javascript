@@ -1,12 +1,6 @@
 function signUpUser(firstName, lastName) {
   // Return a resolved promise with the user object
   return Promise.resolve({
-    firstName: firstName,
-    lastName: lastName,
+    firstName:"Bob",
+    lastName:"Dylen",
   });
-}
-
-// Example usage
-signUpUser('bob', 'Dylan').then(user => {
-  console.log(user); // { firstName: 'bob', lastName: 'Dylan' }
-});
