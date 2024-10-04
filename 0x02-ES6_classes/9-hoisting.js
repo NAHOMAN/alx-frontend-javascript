@@ -1,4 +1,4 @@
-// HolbertonClass Definition
+// Class definitions
 export class HolbertonClass {
   constructor(year, location) {
     this._year = year;
@@ -14,12 +14,11 @@ export class HolbertonClass {
   }
 }
 
-// StudentHolberton Definition
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
-    this._holbertonClass = holbertonClass; // Store the class reference
+    this._holbertonClass = holbertonClass; // Use the parameter passed into the constructor
   }
 
   get fullName() {
@@ -27,31 +26,25 @@ export class StudentHolberton {
   }
 
   get holbertonClass() {
-    return this._holbertonClass; // Correctly return the stored class reference
+    return this._holbertonClass; // Correctly return the _holbertonClass property
   }
 
   get fullStudentDescription() {
-    // Return formatted string for student description
-    return `${this.fullName} - ${this.holbertonClass.year} - ${this.holbertonClass.location}`;
+    // Correct reference to 'this'
+    return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
   }
 }
 
-// Creating instances of HolbertonClass
-const classes = {
-  2019: new HolbertonClass(2019, 'San Francisco'),
-  2020: new HolbertonClass(2020, 'San Francisco'),
-};
+// Initialize classes before using them
+const class2019 = new HolbertonClass(2019, 'San Francisco');
+const class2020 = new HolbertonClass(2020, 'San Francisco');
 
-// Creating instances of StudentHolberton
-const studentNames = [
-  ['Guillaume', 'Salva', classes[2020]],
-  ['John', 'Doe', classes[2020]],
-  ['Albert', 'Clinton', classes[2019]],
-  ['Donald', 'Bush', classes[2019]],
-  ['Jason', 'Sandler', classes[2019]]
-];
+// Create student instances
+const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
+const student2 = new StudentHolberton('John', 'Doe', class2020);
+const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
+const student4 = new StudentHolberton('Donald', 'Bush', class2019);
+const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
-// Using map to create an array of StudentHolberton instances
-export const listOfStudents = studentNames.map(([firstName, lastName, holbertonClass]) => 
-  new StudentHolberton(firstName, lastName, holbertonClass)
-);
+// Export the list of students
+export const listOfStudents = [student1, student2, student3, student4, student5];
