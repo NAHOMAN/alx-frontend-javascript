@@ -5,8 +5,3 @@ function signUpUser(firstName, lastName) {
     lastName: lastName,
   });
 }
-
-// Example Usage
-signUpUser('John', 'Doe').then(user => {
-  console.log(user); // { firstName: 'John', lastName: 'Doe' }
-});
