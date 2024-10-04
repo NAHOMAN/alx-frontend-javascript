@@ -1,14 +1,14 @@
-import signUpUser from './4-user-promise.js'; // Adjust the path as necessary
-import uploadPhoto from './5-photo-reject.js'; // Adjust the path as necessary
+import signUpUser from './4-user-promise.js';
+import uploadPhoto from './5-photo-reject.js';
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
-  // Use Promise.allSettled to wait for both promises to settle
-  const results = await Promise.allSettled([
+  const promises = [
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
-  ]);
+  ];
 
-  // Map the results to the desired format
+  const results = await Promise.allSettled(promises);
+
   return results.map(result => ({
     status: result.status,
     value: result.status === 'fulfilled' ? result.value : result.reason,
