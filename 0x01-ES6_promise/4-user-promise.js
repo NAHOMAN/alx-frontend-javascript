@@ -1,7 +1,7 @@
-function signUpUser(firstName, lastName) {
+async function signUpUser(firstName, lastName) {
   // Return a resolved promise with the user object
-  return Promise.resolve({
+  return {
     firstName: firstName,
     lastName: lastName,
-  });
+  };
 }
