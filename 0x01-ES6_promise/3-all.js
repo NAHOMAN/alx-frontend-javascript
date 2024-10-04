@@ -1,18 +1,17 @@
-import uploadPhoto from './utils.js'; // Adjust the import path as necessary
-import createUser from './utils.js';   // Adjust the import path as necessary
+// Importing the functions
+import { uploadPhoto, createUser } from './utils.js';
 
-export default async function handleProfileSignup(fileName, firstName, lastName) {
-  try {
-    // Collectively resolve the promises
-    const [photoResponse, userResponse] = await Promise.all([
-      uploadPhoto(fileName),
-      createUser(firstName, lastName),
-    ]);
+export default function handleProfileSignup() {
+  // Use Promise.all to collectively resolve both promises
+  Promise.all([uploadPhoto(), createUser()])
+    .then((results) => {
+      const [photoResult, userResult] = results;
 
-    // Log the body from the uploadPhoto response and firstName, lastName from createUser response
-    console.log(photoResponse.body, userResponse.firstName, userResponse.lastName);
-  } catch (error) {
-    // Log error message if any of the promises are rejected
-    console.log('Signup system offline');
-  }
+      // Log the resolved values (assuming photoResult has a body and userResult has firstName and lastName)
+      console.log(`${photoResult.body} ${userResult.firstName} ${userResult.lastName}`);
+    })
+    .catch(() => {
+      // In case of an error, log this message
+      console.log('Signup system offline');
+    });
 }
