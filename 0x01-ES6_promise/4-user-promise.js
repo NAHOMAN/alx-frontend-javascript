@@ -1,6 +1,5 @@
 function signUpUser(firstName, lastName) {
-  return Promise.resolve({
-    firstName: firstName,
-    lastName: lastName,
-  });
+	const FirstName: firstName,
+	const lastName: lastName,
 }
+  return Promise.resolve
