@@ -19,7 +19,7 @@ export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
-    this._holbertonClass = holbertonClass; // Correct parameter usage
+    this._holbertonClass = holbertonClass; // Store the class reference
   }
 
   get fullName() {
@@ -27,26 +27,31 @@ export class StudentHolberton {
   }
 
   get holbertonClass() {
-    return this._holbertonClass; // Correctly return the class reference
+    return this._holbertonClass; // Correctly return the stored class reference
   }
 
   get fullStudentDescription() {
+    // Return formatted string for student description
     return `${this.fullName} - ${this.holbertonClass.year} - ${this.holbertonClass.location}`;
   }
 }
 
 // Creating instances of HolbertonClass
-const class2019 = new HolbertonClass(2019, 'San Francisco');
-const class2020 = new HolbertonClass(2020, 'San Francisco');
+const classes = {
+  2019: new HolbertonClass(2019, 'San Francisco'),
+  2020: new HolbertonClass(2020, 'San Francisco'),
+};
 
 // Creating instances of StudentHolberton
-const students = [
-  new StudentHolberton('Guillaume', 'Salva', class2020),
-  new StudentHolberton('John', 'Doe', class2020),
-  new StudentHolberton('Albert', 'Clinton', class2019),
-  new StudentHolberton('Donald', 'Bush', class2019),
-  new StudentHolberton('Jason', 'Sandler', class2019)
+const studentNames = [
+  ['Guillaume', 'Salva', classes[2020]],
+  ['John', 'Doe', classes[2020]],
+  ['Albert', 'Clinton', classes[2019]],
+  ['Donald', 'Bush', classes[2019]],
+  ['Jason', 'Sandler', classes[2019]]
 ];
 
-// Export the list of students
-export const listOfStudents = students;
+// Using map to create an array of StudentHolberton instances
+export const listOfStudents = studentNames.map(([firstName, lastName, holbertonClass]) => 
+  new StudentHolberton(firstName, lastName, holbertonClass)
+);
