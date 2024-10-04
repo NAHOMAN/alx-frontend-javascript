@@ -8,7 +8,6 @@ export default function handleProfileSignup() {
       const [photoResult, userResult] = results;
 
       // Log the required values (photoResult.body, userResult.firstName, userResult.lastName)
-      console.log(`${photoResult.body} ${userResult.firstName} ${userResult.lastName}`);
     })
     .catch(() => {
       // In case of an error, log "Signup system offline"
