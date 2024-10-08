@@ -8,6 +8,6 @@ export default function getListStudentIds(students) {
     if (student.id !== undefined) {
       accumulator.push(student.id);
     }
-    return accumulator; // Return the accumulator for the next iteration
+    return students.map(student => student.id);
   }, []);
 }
