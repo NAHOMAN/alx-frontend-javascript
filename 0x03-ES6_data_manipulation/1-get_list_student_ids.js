@@ -10,5 +10,4 @@ export default function getListStudentIds(students) {
     acc.push(student.id);
 	  return acc;
   }, []);
-	return students.map(student => student.id);
 }
