@@ -8,7 +8,7 @@ export default function getListStudentIds(students) {
   return students.reduce((acc, student) => {
     // Push the student's id into the accumulator array
     acc.push(student.id);
-
-	  return students.map(student => student.id);
+	  return acc;
   }, []);
+	return students.map(student => student.id);
 }
