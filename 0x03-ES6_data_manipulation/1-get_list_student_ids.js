@@ -1,13 +1,16 @@
 export default function getListStudentIds(students) {
-  // Check if the input is an array
-  if (!Array.isArray(students)) {
-    return [];
-  }
+  // Return an empty array if the input is not an array
+  if (!Array.isArray(students)) return [];
 
-  // Use reduce to create an array of student IDs
-  return students.reduce((acc, student) => {
-    // Push the student's id into the accumulator array
-    acc.push(student.id);
-	  return acc;
-  }, []);
+  // Initialize an empty array to hold the ids
+  const ids = [];
+
+  // Loop through each student and push their id to the ids array
+  students.forEach(student => {
+    if (student.id !== undefined) {
+      ids.push(student.id);
+    }
+  });
+
+  return ids;
 }
